@@ -1,0 +1,19 @@
+{
+  "wide_path": "data/all_modalities_id_session_wide.csv",
+  "last_session_path": "data/attendance.csv",
+  "id_column": "id",
+  "session_column": "session",
+  "last_session_id_column": "record_id",
+  "last_session_column": "last_session",
+  "targets": ["ever_dropout"],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "strategy": "target_and_last_session",
+  "last_session_cutpoints": [0, 9, 23],
+  "last_session_bin_labels": ["<=0", "1-9", "10-23", ">23"],
+  "target_stratum_labels": ["never", "mixed", "always"],
+  "test_size": 0.2,
+  "validation_size_within_development": 0.2,
+  "validation_seed_offset": 100003,
+  "training_target": "ever_dropout",
+  "output_dir": "results/participant_splits"
+}

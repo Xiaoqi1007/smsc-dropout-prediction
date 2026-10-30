@@ -1,0 +1,11 @@
+-r requirements.txt
+whisperx
+pyannote.audio
+torchaudio==2.8.0
+sentence-transformers>=4
+transformers>=4.51,<5
+accelerate>=0.30
+packaging>=23
+soundfile
+openpyxl>=3.1
+tensorflow>=2.16

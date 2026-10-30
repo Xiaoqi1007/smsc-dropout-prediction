@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when referring to these analyses."
+title: "SMSC dropout analysis"
+type: software
+version: 1.8.0
+date-released: 2026-10-29
+authors:
+  - name: "Safe Mothers, Safe Children study team"
+preferred-citation:
+  type: unpublished
+  title: "Interpretable multimodal AI for early detection of dropout from child maltreatment interventions"
+  year: 2026
+  authors:
+    - family-names: Zhu
+      given-names: Xiaoqi
+    - family-names: Boxer
+      given-names: Kate
+    - family-names: Zhang
+      given-names: Fan
+    - family-names: Lindsey
+      given-names: Michael A.
+    - family-names: Sullivan
+      given-names: Kathrine
+    - family-names: Villalobos Carballo
+      given-names: Kimberly

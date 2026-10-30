@@ -1,0 +1,146 @@
+{
+  "data_path": "data/all_modalities_id_session_wide.csv",
+  "split_path": "data/participant_splits.csv",
+  "embedding_root": "data/embeddings",
+  "id_column": "id",
+  "session_column": "session",
+  "targets": [
+    "ever_dropout"
+  ],
+  "cache_targets": [
+    "ever_dropout",
+    "next_session_dropout"
+  ],
+  "session_window": {
+    "min": 0,
+    "max": 23
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "source_prefixes": {
+    "video_tabular": [
+      "emotion__",
+      "speech__"
+    ],
+    "session_note": [
+      "session_info__",
+      "session_note_struct__"
+    ]
+  },
+  "max_categorical_levels": 50,
+  "participant_equal_weights": true,
+  "balanced_classes": true,
+  "nn": {
+    "learning_rate": 1e-05,
+    "batch_size": 32,
+    "epochs": 200,
+    "l2_strength": 0.0001,
+    "hidden_units": 256,
+    "dropout": 0.3,
+    "prediction_batch_size": 512,
+    "device": "cpu",
+    "patience": 8,
+    "min_delta": 1e-05
+  },
+  "analysis_targets": [
+    "ever_dropout"
+  ],
+  "tabular_prefixes": [
+    "pre_assessment__",
+    "preassessment__",
+    "pre__",
+    "session_info__",
+    "session_note_struct__"
+  ],
+  "tabular_columns": [
+    "session"
+  ],
+  "video_prefixes": [
+    "emotion__",
+    "speech__"
+  ],
+  "ignored_columns": [
+    "emotion__derived_prior_before_session_emotion_n_snippets",
+    "speech__session_mean_participant_words",
+    "speech__participant_words_vs_session_mean",
+    "session_info__session_date",
+    "session_info__derived_previous_session_date",
+    "session_info__session0_date",
+    "session_note_struct__session_note_date"
+  ],
+  "ignored_prefixes": [],
+  "source_lr": {
+    "C": 1.0,
+    "max_iter": 5000
+  },
+  "preassessment": {
+    "enabled": true,
+    "cm_path": "data/preassessment_tabular_by_id.csv",
+    "label_path": null,
+    "id_map_path": null,
+    "cm_id_column": "record_id",
+    "label_id_column": "record_id",
+    "label_target_column": "ever_dropout",
+    "event_column": "event",
+    "pre_events": [],
+    "conflict_policy": "error",
+    "prefix": "pre_assessment__",
+    "numeric_parse_threshold": 0.9,
+    "max_missing_rate": 1.0,
+    "drop_exact_duplicates": false,
+    "max_dominant_fraction": 1.01,
+    "min_binary_minority_count": 0,
+    "exclude_columns": [],
+    "exclude_name_patterns": [
+      "^redcap_",
+      "_timestamp$",
+      "_complete$",
+      "(^|__)(ever_dropout|next_session_dropout|target|label|last_session|observed_last_session)($|__)"
+    ],
+    "source_format": "processed_by_id"
+  },
+  "xgb": {
+    "candidates": [
+      {
+        "max_depth": 2,
+        "n_estimators": 100
+      },
+      {
+        "max_depth": 2,
+        "n_estimators": 200
+      },
+      {
+        "max_depth": 3,
+        "n_estimators": 100
+      },
+      {
+        "max_depth": 3,
+        "n_estimators": 200
+      }
+    ]
+  },
+  "session_prefixes": [
+    "session_info__",
+    "session_note_struct__"
+  ],
+  "session_columns": [
+    "session"
+  ],
+  "modes": {
+    "full_text": {
+      "label": "Full text",
+      "directory": "text_input_full_text",
+      "shared_embedding": true
+    }
+  }
+}

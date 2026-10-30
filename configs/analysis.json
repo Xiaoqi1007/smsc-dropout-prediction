@@ -1,0 +1,41 @@
+{
+  "name": "smsc_dropout",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "session_window": [
+    0,
+    23
+  ],
+  "inputs": {
+    "data_path": "data/all_modalities_id_session_wide.csv",
+    "split_path": "data/participant_splits.csv",
+    "preassessment_path": "data/preassessment_tabular_by_id.csv",
+    "embedding_root": "data/embeddings"
+  },
+  "training": {
+    "nn": {
+      "device": "cpu",
+      "epochs": 200,
+      "patience": 8
+    }
+  },
+  "features": {
+    "exclude_columns": [
+      "session_info__derived_session_current",
+      "speech__participant_total_words",
+      "speech__total_role_labeled_words",
+      "emotion__n_snippets",
+      "emotion__total_video_length_mins"
+    ]
+  }
+}
